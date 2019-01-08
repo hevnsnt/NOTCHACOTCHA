@@ -1,2 +1,90 @@
-# NOTCHACOTCHA
-NOTCHACOTCHA
+# Not-Cotcha / Notcha-Cotcha 
+###### OpenSource Laser Countermeasure
+
+
+<pre>
+               .-'''-.                 _..._                           
+              '   _    \            .-'_..._''.                        
+   _..._    /   /` '.   \         .' .'      '.\  .                    
+ .'     '. .   |     \  '        / .'           .'|                    
+.   .-.   .|   '      |  '  .|  . '            <  |                    
+|  '   '  |\    \     / / .' |_ | |             | |             __     
+|  |   |  | `.   ` ..' /.'     || |             | | .'''-.   .:--.'.   
+|  |   |  |    '-...-'`'--.  .-'. '             | |/.'''. \ / |   \ |  
+|  |   |  |               |  |   \ '.          .|  /    | | `" __ | |  
+|  |   |  |               |  |    '. `._____.-'/| |     | |  .'.''| |  
+|  |   |  |               |  '.'    `-.______ / | |     | | / /   | |_ 
+|  |   |  |               |   /              `  | '.    | '.\ \._,\ '/ 
+'--'   '--'               `'-'                  '---'   '---'`--'  `"  
+
+    
+</pre>
+
+## Open Source ESP8266 Based Laser Jammer
+* 12V Circuitry for Automobile Install
+* 940nm Brute Force Mode
+* Wireless Connectivity & Android App
+* Legal in SOME STATES!
+* Laser Gun Emulation Mode
+* MIRT Mode (good idea meter: SUPER RED)
+
+
+## Parts List:
+<pre>
+* D1 Mini (ESP8266)      : amzn.com/B01N3P763C  
+* 2.2k Ohm Resistor      : amzn.com/B0185FJBJC
+* 3.3v Voltage Regulator : amzn.com/B0758ZTS61
+* TIP102 NPN Transistor  : amzn.com/B00M1GGKIC
+* 940nm LED Array        : amzn.com/B00M1GGKICB07D5FJQ62
+</pre>
+
+*Note: Currently using the D1 Mini, but this project will soon be moving to ESP32 LOLIN32 Board*
+
+![RPI Schematic](https://github.com/hevnsnt/notcha/blob/master/images/schematic.png "RPI Schematic")
+
+
+## Release History:
+
+* 0.0.1
+    * MVP -- 2018 Halloween. RaspberryPi based; mainly because that is what I have on hand. Future verisons will likely be ESP32 based in order to reduce cost and fit within the Hallowuino framework.
+
+## To Do:
+* Everything! Literally nothing is done!
+	* Relay 1: Lid Lifter [done]
+	* Relay 2: Box Lifter
+	* Relay 3: Smoke Machine [done]
+	* Relay 4: --
+
+## Schematics:
+
+
+## Meta:
+Created by: Bill Swearingen – [@hevnsnt](https://twitter.com/hevnsnt) – bill@seckc.org
+
+Distributed under the GNU General Public License v3.0. See ``LICENSE`` for more information.
+
+For my other projects, please see [https://github.com/hevnsnt/](https://github.com/hevnsnt/)
+
+## Contributing:
+I love contributors! Please help out this project by replacing my crappy code with good code!
+
+1. Fork it (<https://github.com/yourname/yourproject/fork>)
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## Inspiration & Stolen Code:
+* craig jameson
+	* https://create.arduino.cc/projecthub/craig-jameson/monster-in-a-box-41cc38
+* skiwithpete
+	* https://github.com/skiwithpete/relaypi
+    * https://www.youtube.com/watch?v=OQyntQLazMU
+* jarame
+	* https://www.instructables.com/id/Monster-In-A-Box-Halloween-Prop-Part-1-The-Box-or-/
+    * https://www.instructables.com/id/Monster-In-A-Box-Halloween-Prop-Part-2-The-Guts/
+* Fritzing
+	* http://fritzing.org/home/
+* Fritzing Relay Parts
+	* https://timgolisch.wordpress.com/2015/09/12/fritzing-4-channel-relay-part/
+    * https://timgolisch.wordpress.com/2015/02/22/fritzing-2-channel-relay-part/
