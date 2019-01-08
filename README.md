@@ -40,7 +40,7 @@
 
 *Note: Currently using the D1 Mini, but this project will soon be moving to ESP32 LOLIN32 Board*
 
-![RPI Schematic](https://github.com/hevnsnt/notcha/blob/master/images/schematic.png "RPI Schematic")
+![RPI Schematic](https://github.com/hevnsnt/NOTCHACOTCHA/blob/master/images/schematic.png "RPI Schematic")
 
 
 ## Release History:
