@@ -40,7 +40,7 @@
 * Wireless Connectivity & Android App
 * Legal in SOME STATES!
 * Laser Gun Emulation Mode
-* MIRT Mode (good idea meter: SUPER RED)
+* MIRT Mode (really bad idea)
 
 
 ## Parts List:
