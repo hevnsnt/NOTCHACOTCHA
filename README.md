@@ -82,5 +82,5 @@ I love contributors! Please help out this project by replacing my crappy code wi
 5. Create a new Pull Request
 
 ## Inspiration & Stolen Code:
-* CITINGS ARE COMING
+* CITINGS AND SOURCES ARE COMING
 	* soon
