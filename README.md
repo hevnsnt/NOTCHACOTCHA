@@ -46,7 +46,7 @@
 * 2.2k Ohm Resistor      : amzn.com/B0185FJBJC
 * 3.3v Voltage Regulator : amzn.com/B0758ZTS61
 * TIP102 NPN Transistor  : amzn.com/B00M1GGKIC
-* 940nm LED Array        : amzn.com/B00M1GGKICB07D5FJQ62
+* 940nm LED Array        : amzn.com/B07D5FJQ62
 </pre>
 
 *Note: Currently using the D1 Mini, but this project will soon be moving to ESP32 LOLIN32 Board*
