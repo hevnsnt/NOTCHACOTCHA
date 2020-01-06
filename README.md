@@ -58,7 +58,8 @@
 
 * 0.0.1
     * 01/08/2019 -- Presented at SecKC
-
+* 08/10/2019 -- Presented at Defcon 27
+    * https://youtu.be/vQtLms02PFM
 ## To Do:
 * Everything! Literally nothing is done!
 
