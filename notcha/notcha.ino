@@ -3,7 +3,6 @@
 // NOTCHA-COTCHA CODE
 //************************************************************
 
-
 #include <Wire.h>
 #include <LOLIN_I2C_BUTTON.h>
 #include <Adafruit_GFX.h>
@@ -15,7 +14,8 @@ Adafruit_SSD1306 display(OLED_RESET);
 #if (SSD1306_LCDHEIGHT != 32)
 #error("Height incorrect, please fix Adafruit_SSD1306.h!");
 #endif
-int  displayLength, minX;
+
+int displayLength, minX;
 #define BUFFDSIZE 200
 char message[BUFFDSIZE];
 
@@ -32,7 +32,6 @@ int switchPin = 13;
 int LEDARRAY = 0;
 int LEDB = 2;
 
-
 void setup() {
   Serial.begin(9600);
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3C (for the 128x32)
@@ -40,15 +39,25 @@ void setup() {
   pinMode(LIDAR_EMITTER, OUTPUT);  // 940nM LED output (mimic 904nM laser diode)
   pinMode(CHANGE_MODE_BUTTON, INPUT);
   pinMode(TRIGGER_BUTTON, INPUT);
+
   Serial.println("start");
 
-
-
-
   setLaserName("Power On");
+
   displayLength = display.width();
   minX = -12 * strlen(message);
   displayData();
+}
+
+void sendPulses(int triggerState, int delay, int cycles = 3) { //sends specified amount of pulses with specified delay if triggerState is 0
+  if (triggerState == 0) {
+        for (int cycleCount = 1; cycleCount <= cycles; cycleCount++) {
+          digitalWrite(LIDAR_EMITTER, HIGH);
+          delayMicroseconds(pulse);
+          digitalWrite(LIDAR_EMITTER, LOW);
+          delayMicroseconds(delay); // 10ms
+        }
+      }
 }
 
 void loop() {
@@ -84,114 +93,43 @@ void loop() {
   switch (choice) {
     case 0:
       setLaserName("Ultralyte Non-LR"); // 100 pulses per second
-
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(9999); // 10ms
-        }
-      }
+      sendPulses(fire, 9999);
       break;
     case 1:
       setLaserName("Ultralyte Rev.1"); // 100pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(9999); // 10ms
-        }
-      }
+      sendPulses(fire, 9999);
       break;
     case 2:
       setLaserName("Jenoptik LaserPL");// 100pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(9999); // 10ms
-        }
-      }
+      sendPulses(fire, 9999);
       break;
     case 3:
       setLaserName("Kustom Prolaser3");// 200 pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(4999); // 5ms
-        }
-      }
+      sendPulses(fire, 4999);
       break;
     case 4:
       setLaserName("Jenoptik Laveg"); // 600pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(1666);
-        }
-      }
+      sendPulses(fire, 1666);
       break;
     case 5:
       setLaserName("Kustom Prolaser1"); // 380pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(2631);
-        }
-      }
+      sendPulses(fire, 2631);
       break;
     case 6:
       setLaserName("Ultralyte Rev.2");  // 125 pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(8000);
-        }
-      }
+      sendPulses(fire, 8000);
       break;
     case 7:
       setLaserName("Stalker LZ-1");  // 130pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(7691);
-        }
-      }
+      sendPulses(fire, 7691);
       break;
     case 8:
       setLaserName("Kustom Prolaser2");  // 238pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(4201);
-        }
-      }
+      sendPulses(fire, 4201);
       break;
     case 9:
       setLaserName("Laser Atlanta");  // 238pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(4201);
-        }
-      }
+      sendPulses(fire, 4201);
       break;
     case 10:
       setLaserName("Laser Atlanta Stealth Mode");  // 238pps  // 2 pulses fire followed by 5 missing pulses
@@ -211,14 +149,7 @@ void loop() {
       break;
     case 11:
       setLaserName("Kustom ProLite");  // 200 pps
-      if (fire == 0) {
-        for (int a = 1; a <= 3; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(4999); // 5ms
-        }
-      }
+      sendPulses(fire, 4999);
       break;
   }
 
@@ -230,7 +161,7 @@ void loop() {
 void setLaserName(char* name) {
 
   sprintf(message, "%s", name);
-  //displayLength = display.width();
+  displayLength = display.width();
 }
 void clearBUFFD() { //just clear the data buffer
   memset(message, 0x00, BUFFDSIZE);
@@ -252,4 +183,3 @@ void displayData() {
 
   if (--displayLength < minX) displayLength = display.width();
 }
-
