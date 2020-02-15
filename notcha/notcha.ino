@@ -23,14 +23,10 @@ int pulse = 1; // pulse size length in microseconds
 int choice = 0;  // select laser gun model type
 int lastchoice = 0; // recall last selection choice
 int fire; // trigger fire button
-int LIDAR_EMITTER = 13;
-int TRIGGER_BUTTON = 11;
+int LIDAR_EMITTER = 13; //LIDAR Emitter pin
+int TRIGGER_BUTTON = 11; //trigger pin
 int CHANGE_MODE_BUTTON = 12;
 int CHANGE_MODE_BUTTON_PRESSED = 0;
-int counter = 0;
-int switchPin = 13;
-int LEDARRAY = 0;
-int LEDB = 2;
 
 void setup() {
   Serial.begin(9600);
