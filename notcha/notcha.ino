@@ -139,12 +139,9 @@ void loop() {
           delayMicroseconds(pulse);
           digitalWrite(LIDAR_EMITTER, LOW);
           delayMicroseconds(4201);
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(12603);  // need 6 delays units (4201*3)
-          delayMicroseconds(12603);  // (4201*3)
         }
+        delayMicroseconds(8402);  // need 6 delays units (4201*3)
+        delayMicroseconds(12603);  // (4201*3)
       }
       break;
     case 11:
