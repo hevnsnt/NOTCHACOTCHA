@@ -49,15 +49,23 @@ void setup() {
   displayData();
 }
 
-void sendPulses(int triggerState, int delay, int cycles = 3) { //sends specified amount of pulses with specified delay if triggerState is 0
+void pulse(int delay, int cycles = 3) {
+  for (int cycleCount = 1; cycleCount <= cycles; cycleCount++) {
+    digitalWrite(LIDAR_EMITTER, HIGH);
+    delayMicroseconds(pulse);
+    digitalWrite(LIDAR_EMITTER, LOW);
+    delayMicroseconds(delay); // 10ms
+  }
+}
+
+void sendPulses(int triggerState, int delay, int cycles = 3, bool stealth = false) { //sends specified amount of pulses with specified delay if triggerState is 0
   if (triggerState == 0) {
-        for (int cycleCount = 1; cycleCount <= cycles; cycleCount++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(delay); // 10ms
-        }
-      }
+        pulse(delay, cycles);
+  }
+  if (stealth) { //Stealth Mode for Atlanta Laser
+    delayMicroseconds(8402);  // need 4 delays units (4201*3) 1 is already in pulse()
+    delayMicroseconds(12603); // need 6 delays units (4201*3)
+  }
 }
 
 void loop() {
@@ -134,14 +142,7 @@ void loop() {
     case 10:
       setLaserName("Laser Atlanta Stealth Mode");  // 238pps  // 2 pulses fire followed by 5 missing pulses
       if (fire == 0) {
-        for (int a = 1; a <= 2; a++) {
-          digitalWrite(LIDAR_EMITTER, HIGH);
-          delayMicroseconds(pulse);
-          digitalWrite(LIDAR_EMITTER, LOW);
-          delayMicroseconds(4201);
-        }
-        delayMicroseconds(8402);  // need 6 delays units (4201*3)
-        delayMicroseconds(12603);  // (4201*3)
+        sendPulses(fire, 4201, 2, true);
       }
       break;
     case 11:
