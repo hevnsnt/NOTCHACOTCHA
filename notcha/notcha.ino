@@ -45,18 +45,18 @@ void setup() {
   displayData();
 }
 
-void pulse(int delay, int cycles = 3) {
+void pulse(int delayms, int cycles = 3) {
   for (int cycleCount = 1; cycleCount <= cycles; cycleCount++) {
     digitalWrite(LIDAR_EMITTER, HIGH);
     delayMicroseconds(pulse);
     digitalWrite(LIDAR_EMITTER, LOW);
-    delayMicroseconds(delay); // 10ms
+    delayMicroseconds(delayms); // 10ms
   }
 }
 
-void sendPulses(int triggerState, int delay, int cycles = 3, bool stealth = false) { //sends specified amount of pulses with specified delay if triggerState is 0
+void sendPulses(int triggerState, int delayms, int cycles = 3, bool stealth = false) { //sends specified amount of pulses with specified delay if triggerState is 0
   if (triggerState == 0) {
-        pulse(delay, cycles);
+        pulse(delayms, cycles);
   }
   if (stealth) { //Stealth Mode for Atlanta Laser
     delayMicroseconds(8402);  // need 4 delays units (4201*3) 1 is already in pulse()
