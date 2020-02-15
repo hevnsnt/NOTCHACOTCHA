@@ -50,7 +50,7 @@ void pulse(int delayms, int cycles = 3) {
     digitalWrite(LIDAR_EMITTER, HIGH);
     delayMicroseconds(pulse);
     digitalWrite(LIDAR_EMITTER, LOW);
-    delayMicroseconds(delayms); // 10ms
+    delayMicroseconds(delayms);
   }
 }
 
@@ -71,7 +71,7 @@ void loop() {
   }
   if (digitalRead(CHANGE_MODE_BUTTON) == 0 && CHANGE_MODE_BUTTON_PRESSED == 0) {
     if (choice < 12) {
-      choice ++ ;
+      choice ++;
     } else {
       choice = 0;
     }
@@ -80,14 +80,11 @@ void loop() {
     Serial.println(choice);
   }
 
-
   if (choice != lastchoice) {
     // clear display only if it's different
     displayLength = display.width();
   }
   lastchoice = choice;
-
-
 
   fire = digitalRead(TRIGGER_BUTTON);
   if (fire == 0) {
@@ -136,10 +133,8 @@ void loop() {
       sendPulses(fire, 4201);
       break;
     case 10:
-      setLaserName("Laser Atlanta Stealth Mode");  // 238pps  // 2 pulses fire followed by 5 missing pulses
-      if (fire == 0) {
-        sendPulses(fire, 4201, 2, true);
-      }
+      setLaserName("Laser Atlanta Stealth Mode");  // 238pps 2 pulses fire followed by 5 missing pulses
+      sendPulses(fire, 4201, 2, true);
       break;
     case 11:
       setLaserName("Kustom ProLite");  // 200 pps
@@ -148,18 +143,18 @@ void loop() {
   }
 
   displayData();
-
 }
 
 
 void setLaserName(char* name) {
-
   sprintf(message, "%s", name);
   displayLength = display.width();
 }
+
 void clearBUFFD() { //just clear the data buffer
   memset(message, 0x00, BUFFDSIZE);
 }
+
 void displayData() {
   display.clearDisplay();
   display.setTextSize(2);
